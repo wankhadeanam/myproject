@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper & Pen | Stationery Shop</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #fffdf6;
+      --green: #536b4d;
+      --light-green: #e8eedf;
+      --yellow: #f7df91;
+      --ink: #29352a;
+      --muted: #6d7468;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--cream);
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #e7e7dc;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      color: var(--green);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    button, .button {
+      border: none;
+      border-radius: 9px;
+      padding: 11px 16px;
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover, .button:hover {
+      opacity: 0.88;
+    }
+
+    .hero {
+      padding: 65px 6%;
+      background: var(--light-green);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: clamp(35px, 5vw, 57px);
+      line-height: 1.12;
+      margin: 15px 0;
+    }
+
+    .hero p {
+      color: #596653;
+      margin-bottom: 24px;
+      max-width: 470px;
+    }
+
+    .hero-art {
+      background: var(--yellow);
+      border-radius: 48% 48% 18px 18px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 105px;
+    }
+
+    section {
+      padding: 48px 6%;
+      scroll-margin-top: 85px;
+    }
+
+    .section-title {
+      font-size: 29px;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .service {
+      background: white;
+      border: 1px solid #e7e7dc;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .service span {
+      font-size: 30px;
+    }
+
+    .service h3 {
+      margin: 8px 0 4px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .shop-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    input, select, textarea {
+      font: inherit;
+      border: 1px solid #d8ddcf;
+      border-radius: 9px;
+      padding: 12px;
+      background: white;
+      color: var(--ink);
+      min-width: 0;
+    }
+
+    #search {
+      flex: 1;
+      min-width: 170px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .categories button {
+      background: white;
+      border: 1px solid #d8ddcf;
+      color: var(--green);
+    }
+
+    .categories button.active {
+      background: var(--green);
+      color: white;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #e7e7dc;
+      border-radius: 13px;
+      padding: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .product-art {
+      background: var(--light-green);
+      border-radius: 10px;
+      min-height: 105px;
+      display: grid;
+      place-items: center;
+      font-size: 47px;
+    }
+
+    .product p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .product .price {
+      font-weight: bold;
+      font-size: 19px;
+      margin-top: auto;
+    }
+
+    .product button {
+      width: 100%;
+    }
+
+    .cart {
+      background: #f2f1e8;
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #dedfd4;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .quantity button {
+      padding: 4px 10px;
+    }
+
+    .cart-total {
+      font-size: 21px;
+      font-weight: bold;
+      margin: 18px 0;
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 12px 0;
+    }
+
+    .contact {
+      background: var(--light-green);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 6%;
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-wrap: wrap;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+
+      .hero-art {
+        min-height: 175px;
+        font-size: 75px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .product {
+        padding: 11px;
+      }
+
+      .services, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 35px 5%;
+      }
+
+      .cart-row {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">✏️ Paper & Pen</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Products</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#cart">🛒 <span id="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">Your neighbourhood stationery store</div>
+        <h1>Little Things.<br>Big Ideas.</h1>
+        <p>
+          From everyday pens to college project supplies,
+          find the little things that help your ideas grow.
+        </p>
+        <a class="button" href="#shop">Explore Products →</a>
+      </div>
+      <div class="hero-art" aria-label="Stationery illustration">
+        📚✏️
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">More Than Just Stationery</h2>
+      <p class="section-subtitle">
+        Your everyday essentials, all in one place.
+      </p>
+
+      <div class="services">
+        <div class="service">
+          <span>📚</span>
+          <h3>School & College</h3>
+          <p>Notebooks, pens, files and daily study supplies.</p>
+        </div>
+        <div class="service">
+          <span>🎨</span>
+          <h3>Art & Projects</h3>
+          <p>Colours, chart paper and creative essentials.</p>
+        </div>
+        <div class="service">
+          <span>🖨️</span>
+          <h3>Print Services</h3>
+          <p>Ask us about printing, photocopying and binding.</p>
+        </div>
+      </div>
+      <p class="note">
+        Services shown are examples. Confirm the shop's actual services
+        with the owner before publishing.
+      </p>
+    </section>
+
+    <section id="shop">
+      <h2 class="section-title">Find Your Essentials</h2>
+      <p class="section-subtitle">
+        Browse the catalogue and add what you need to your cart.
+      </p>
+
+      <div class="shop-tools">
+        <input id="search" type="search"
+          placeholder="Search notebooks, pens..."
+          aria-label="Search products">
+        <select id="sort" aria-label="Sort products">
+          <option value="default">Sort: Recommended</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+      </div>
+
+      <div class="categories" id="categories">
+        <button class="active" data-category="All">All</button>
+        <button data-category="Writing">Writing</button>
+        <button data-category="Notebooks">Notebooks</button>
+        <button data-category="Art">Art Supplies</button>
+        <button data-category="Paper">Paper & Files</button>
+      </div>
+
+      <div class="products" id="products"></div>
+
+      <div class="cart" id="cart">
+        <h2>Your Shopping Cart 🛒</h2>
+        <div id="cart-items">
+          <p class="empty">Your cart is empty. Add some stationery!</p>
+        </div>
+        <div class="cart-total">
+          Total: ₹<span id="cart-total">0</span>
+        </div>
+        <button id="order-button">Send Order Enquiry on WhatsApp</button>
+        <p class="note">
+          This creates an enquiry, not a confirmed purchase.
+          The shop owner must confirm stock and prices.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-grid">
+        <div>
+          <h2 class="section-title">Visit Our Shop</h2>
+          <p>We're happy to help you find what you need.</p>
+          <br>
+          <p><strong>Shop:</strong> Paper & Pen</p>
+          <p><strong>Address:</strong> Add the real shop address here</p>
+          <p><strong>Hours:</strong> Add actual opening hours</p>
+          <p><strong>Phone:</strong> Add the shop's contact number</p>
+          <br>
+          <p>Have a question? Send us an enquiry.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <input id="customer-name" type="text"
+            placeholder="Your name" required>
+          <input id="customer-phone" type="tel"
+            placeholder="Your phone number (optional)">
+          <textarea id="customer-message" rows="4"
+            placeholder="What do you need?" required></textarea>
+          <button type="submit">Send Enquiry on WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Paper & Pen — Supporting students, one page at a time. 💚</p>
+    <p>Community Project | Designed with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script>
+    // Replace these sample products with the shop's real products.
+    const products = [
+      {id: 1, name: "Ballpoint Pen", category: "Writing",
+       price: 10, emoji: "🖊️", desc: "For everyday writing"},
+      {id: 2, name: "Pencil Set", category: "Writing",
+       price: 25, emoji: "✏️", desc: "Useful for notes and drawing"},
+      {id: 3, name: "Spiral Notebook", category: "Notebooks",
+       price: 60, emoji: "📓", desc: "For class notes"},
+      {id: 4, name: "Pocket Notebook", category: "Notebooks",
+       price: 30, emoji: "📔", desc: "Small and easy to carry"},
+      {id: 5, name: "Colour Set", category: "Art",
+       price: 80, emoji: "🖍️", desc: "For creative projects"},
+      {id: 6, name: "Geometry Box", category: "Art",
+       price: 90, emoji: "📐", desc: "Maths and geometry tools"},
+      {id: 7, name: "A4 Paper Pack", category: "Paper",
+       price: 100, emoji: "📄", desc: "For assignments and printing"},
+      {id: 8, name: "Document File", category: "Paper",
+       price: 20, emoji: "📁", desc: "Keep papers organised"},
+      {id: 9, name: "Highlighter", category: "Writing",
+       price: 30, emoji: "🖍️", desc: "Highlight important notes"}
+    ];
+
+    // Add the owner's WhatsApp number here, including country code.
+    // India example: 919876543210 (no +, spaces or dashes).
+    const SHOP_WHATSAPP = "91XXXXXXXXXX";
+
+    let selectedCategory = "All";
+    const cart = {};
+
+    const productArea = document.getElementById("products");
+    const search = document.getElementById("search");
+    const sort = document.getElementById("sort");
+
+    function renderProducts() {
+      let visible = products.filter(product => {
+        const matchesCategory =
+          selectedCategory === "All" ||
+          product.category === selectedCategory;
+
+        const matchesSearch =
+          product.name.toLowerCase().includes(search.value.toLowerCase()) ||
+          product.category.toLowerCase().includes(search.value.toLowerCase());
+
+        return matchesCategory && matchesSearch;
+      });
+
+      if (sort.value === "low") {
+        visible.sort((a, b) => a.price - b.price);
+      } else if (sort.value === "high") {
+        visible.sort((a, b) => b.price - a.price);
+      }
+
+      if (visible.length === 0) {
+        productArea.innerHTML =
+          '<p class="empty">No products found. Try another search.</p>';
+        return;
+      }
+
+      productArea.innerHTML = visible.map(product => `
+        <article class="product">
+          <div class="product-art">${product.emoji}</div>
+          <h3>${product.name}</h3>
+          <p>${product.desc}</p>
+          <p>${product.category}</p>
+          <div class="price">₹${product.price}</div>
+          <button data-add="${product.id}">Add to Cart +</button>
+        </article>
+      `).join("");
+    }
+
+    function renderCart() {
+      const items = Object.entries(cart)
+        .filter(([id, quantity]) => quantity > 0);
+
+      let count = 0;
+      let total = 0;
+
+      items.forEach(([id, quantity]) => {
+        const product = products.find(p => p.id === Number(id));
+        count += quantity;
+        total += product.price * quantity;
+      });
+
+      document.getElementById("cart-count").textContent = count;
+      document.getElementById("cart-total").textContent = total;
+
+      const area = document.getElementById("cart-items");
+
+      if (items.length === 0) {
+        area.innerHTML =
+          '<p class="empty">Your cart is empty. Add some stationery!</p>';
+        return;
+      }
+
+      area.innerHTML = items.map(([id, quantity]) => {
+        const product = products.find(p => p.id === Number(id));
+        return `
+          <div class="cart-row">
+            <div>
+              <strong>${product.name}</strong><br>
+              ₹${product.price} × ${quantity}
+            </div>
+            <div class="quantity">
+              <button data-change="${id}" data-delta="-1"
+                aria-label="Remove one ${product.name}">−</button>
+              <span>${quantity}</span>
+              <button data-change="${id}" data-delta="1"
+                aria-label="Add one ${product.name}">+</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("categories")
+      .addEventListener("click", event => {
+        const button = event.target.closest("button[data-category]");
+        if (!button) return;
+
+        selectedCategory = button.dataset.category;
+
+        document.querySelectorAll("#categories button")
+          .forEach(item => item.classList.remove("active"));
+
+        button.classList.add("active");
+        renderProducts();
+      });
+
+    productArea.addEventListener("click", event => {
+      const button = event.target.closest("button[data-add]");
+      if (!button) return;
+
+      const id = Number(button.dataset.add);
+      cart[id] = (cart[id] || 0) + 1;
+      renderCart();
+    });
+
+    document.getElementById("cart-items")
+      .addEventListener("click", event => {
+        const button = event.target.closest("button[data-change]");
+        if (!button) return;
+
+        const id = Number(button.dataset.change);
+        cart[id] = (cart[id] || 0) + Number(button.dataset.delta);
+
+        if (cart[id] <= 0) delete cart[id];
+
+        renderCart();
+      });
+
+    search.addEventListener("input", renderProducts);
+    sort.addEventListener("change", renderProducts);
+
+    function openWhatsApp(message) {
+      if (!/^91\d{10}$/.test(SHOP_WHATSAPP)) {
+        alert(
+          "The shop's WhatsApp number has not been configured yet. " +
+          "Replace SHOP_WHATSAPP in the code with the owner's 10-digit " +
+          "Indian mobile number including country code 91."
+        );
+        return;
+      }
+
+      const url = "https://wa.me/" + SHOP_WHATSAPP +
+        "?text=" + encodeURIComponent(message);
+
+      window.open(url, "_blank");
+    }
+
+    document.getElementById("order-button")
+      .addEventListener("click", () => {
+        const items = Object.entries(cart)
+          .filter(([id, quantity]) => quantity > 0);
+
+        if (items.length === 0) {
+          alert("Please add at least one product to your cart first.");
+          return;
+        }
+
+        let total = 0;
+        const lines = items.map(([id, quantity]) => {
+          const product = products.find(p => p.id === Number(id));
+          total += product.price * quantity;
+          return `${product.name} x ${quantity} = ₹${product.price * quantity}`;
+        });
+
+        const message =
+          "Hello! I would like to enquire about these stationery items:\n\n" +
+          lines.join("\n") +
+          `\n\nEstimated total: ₹${total}` +
+          "\nPlease confirm availability and final prices. Thank you!";
+
+        openWhatsApp(message);
+      });
+
+    document.getElementById("contact-form")
+      .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const name = document.getElementById("customer-name").value.trim();
+        const phone = document.getElementById("customer-phone").value.trim();
+        const message = document.getElementById("customer-message").value.trim();
+
+        if (!name || !message) return;
+
+        openWhatsApp(
+          `Hello! My name is ${name}.\n` +
+          (phone ? `My contact number is ${phone}.\n` : "") +
+          `Enquiry: ${message}`
+        );
+      });
+
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
