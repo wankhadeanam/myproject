@@ -2,703 +2,695 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paper & Pen | Stationery Shop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper & Pen | Stationery Shop</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    :root {
-      --cream: #fffdf6;
-      --green: #536b4d;
-      --light-green: #e8eedf;
-      --yellow: #f7df91;
-      --ink: #29352a;
-      --muted: #6d7468;
-      --white: #ffffff;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f6f0;
+  color: #25352e;
+  line-height: 1.6;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-    }
+header {
+  background: #244d3c;
+  color: white;
+  padding: 22px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-    header {
-      background: var(--cream);
-      padding: 18px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid #e7e7dc;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+header h1 {
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
 
-    .logo {
-      font-size: 23px;
-      font-weight: bold;
-      color: var(--green);
-    }
+header p {
+  font-size: 13px;
+  color: #e1e9df;
+}
 
-    nav {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
+header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    nav a {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 14px;
-    }
+.hero {
+  padding: 55px 6%;
+  background: #e6eddf;
+  text-align: center;
+}
 
-    button, .button {
-      border: none;
-      border-radius: 9px;
-      padding: 11px 16px;
-      background: var(--green);
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-      text-decoration: none;
-      display: inline-block;
-    }
+.hero h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 6vw, 45px);
+  margin-bottom: 10px;
+}
 
-    button:hover, .button:hover {
-      opacity: 0.88;
-    }
+.hero p {
+  color: #53645a;
+  margin-bottom: 22px;
+}
 
-    .hero {
-      padding: 65px 6%;
-      background: var(--light-green);
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 35px;
-      align-items: center;
-    }
+button {
+  border: none;
+  border-radius: 7px;
+  padding: 11px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.2s;
+}
 
-    .eyebrow {
-      color: var(--green);
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-    }
+button:hover {
+  opacity: 0.86;
+}
 
-    h1 {
-      font-size: clamp(35px, 5vw, 57px);
-      line-height: 1.12;
-      margin: 15px 0;
-    }
+.primary {
+  background: #244d3c;
+  color: white;
+}
 
-    .hero p {
-      color: #596653;
-      margin-bottom: 24px;
-      max-width: 470px;
-    }
+.secondary {
+  background: #e3e9e0;
+  color: #244d3c;
+}
 
-    .hero-art {
-      background: var(--yellow);
-      border-radius: 48% 48% 18px 18px;
-      min-height: 240px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 105px;
-    }
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 18px;
+}
 
-    section {
-      padding: 48px 6%;
-      scroll-margin-top: 85px;
-    }
+.section-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
 
-    .section-title {
-      font-size: 29px;
-      margin-bottom: 8px;
-    }
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 29px;
+}
 
-    .section-subtitle {
-      color: var(--muted);
-      margin-bottom: 22px;
-    }
+.tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd4ca;
+  border-radius: 7px;
+  font: inherit;
+  background: white;
+}
 
-    .service {
-      background: white;
-      border: 1px solid #e7e7dc;
-      border-radius: 12px;
-      padding: 20px;
-    }
+.tools input {
+  flex: 2;
+  min-width: 170px;
+}
 
-    .service span {
-      font-size: 30px;
-    }
+.tools select {
+  flex: 1;
+  min-width: 150px;
+}
 
-    .service h3 {
-      margin: 8px 0 4px;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
 
-    .service p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+.product {
+  background: white;
+  border: 1px solid #e2e5dc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 14px #263c2c0b;
+}
 
-    .shop-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
+.product-icon {
+  background: #edf1e8;
+  border-radius: 9px;
+  text-align: center;
+  font-size: 48px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
 
-    input, select, textarea {
-      font: inherit;
-      border: 1px solid #d8ddcf;
-      border-radius: 9px;
-      padding: 12px;
-      background: white;
-      color: var(--ink);
-      min-width: 0;
-    }
+.product h3 {
+  margin-bottom: 4px;
+}
 
-    #search {
-      flex: 1;
-      min-width: 170px;
-    }
+.category {
+  color: #718074;
+  font-size: 13px;
+}
 
-    .categories {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
 
-    .categories button {
-      background: white;
-      border: 1px solid #d8ddcf;
-      color: var(--green);
-    }
+.price {
+  font-weight: bold;
+  font-size: 19px;
+}
 
-    .categories button.active {
-      background: var(--green);
-      color: white;
-    }
+.cart-box, .checkout-box, .bill-box {
+  background: white;
+  border: 1px solid #e0e5dc;
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 35px;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
+.cart-box h2, .checkout-box h2, .bill-box h2 {
+  font-family: Georgia, serif;
+  margin-bottom: 15px;
+}
 
-    .product {
-      background: white;
-      border: 1px solid #e7e7dc;
-      border-radius: 13px;
-      padding: 17px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #edf0e9;
+  padding: 13px 0;
+}
 
-    .product-art {
-      background: var(--light-green);
-      border-radius: 10px;
-      min-height: 105px;
-      display: grid;
-      place-items: center;
-      font-size: 47px;
-    }
+.cart-item-info {
+  flex: 1;
+}
 
-    .product p {
-      color: var(--muted);
-      font-size: 13px;
-    }
+.cart-item small {
+  color: #68776b;
+}
 
-    .product .price {
-      font-weight: bold;
-      font-size: 19px;
-      margin-top: auto;
-    }
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .product button {
-      width: 100%;
-    }
+.quantity button {
+  padding: 5px 10px;
+}
 
-    .cart {
-      background: #f2f1e8;
-      border-radius: 14px;
-      padding: 22px;
-      margin-top: 30px;
-    }
+.remove {
+  color: #9b3434;
+  background: #f9e8e5;
+  padding: 7px 9px;
+}
 
-    .cart-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 0;
-      border-bottom: 1px solid #dedfd4;
-    }
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 18px 0;
+}
 
-    .quantity {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
+.empty {
+  color: #718074;
+  padding: 12px 0;
+}
 
-    .quantity button {
-      padding: 4px 10px;
-    }
+.hidden {
+  display: none !important;
+}
 
-    .cart-total {
-      font-size: 21px;
-      font-weight: bold;
-      margin: 18px 0;
-    }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
 
-    .empty {
-      color: var(--muted);
-      padding: 12px 0;
-    }
+.field {
+  margin-bottom: 15px;
+}
 
-    .contact {
-      background: var(--light-green);
-    }
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
+.full {
+  grid-column: 1 / -1;
+}
 
-    .contact-form {
-      display: grid;
-      gap: 12px;
-    }
+.note {
+  background: #f4f5ee;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+  color: #5b6c5f;
+  margin: 14px 0;
+}
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-    }
+.bill-box {
+  border: 2px dashed #9eaf9f;
+}
 
-    .note {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 10px;
-    }
+.bill-header {
+  text-align: center;
+  border-bottom: 1px dashed #9eaf9f;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
 
-    footer {
-      text-align: center;
-      padding: 24px 6%;
-      background: var(--green);
-      color: white;
-      font-size: 13px;
-    }
+.bill-header h2 {
+  margin-bottom: 0;
+}
 
-    @media (max-width: 650px) {
-      header {
-        flex-wrap: wrap;
-      }
+.bill-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+}
 
-      nav {
-        width: 100%;
-        justify-content: space-between;
-      }
+footer {
+  background: #244d3c;
+  color: white;
+  text-align: center;
+  padding: 24px 15px;
+  margin-top: 30px;
+}
 
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 40px;
-      }
+footer p {
+  font-size: 13px;
+  color: #e1e9df;
+}
 
-      .hero-art {
-        min-height: 175px;
-        font-size: 75px;
-      }
+@media (max-width: 550px) {
+  header {
+    padding: 18px;
+  }
 
-      .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
+  .hero {
+    padding: 38px 18px;
+  }
 
-      .product {
-        padding: 11px;
-      }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .services, .contact-grid {
-        grid-template-columns: 1fr;
-      }
+  .full {
+    grid-column: auto;
+  }
 
-      section {
-        padding: 35px 5%;
-      }
+  .cart-item {
+    flex-wrap: wrap;
+  }
+}
 
-      .cart-row {
-        flex-wrap: wrap;
-      }
-    }
-  </style>
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #bill, #bill * {
+    visibility: visible;
+  }
+
+  #bill {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    border: none;
+    color: black;
+    box-shadow: none;
+  }
+
+  #bill button, #bill .note {
+    display: none !important;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="logo">✏️ Paper & Pen</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Products</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="#cart">🛒 <span id="cart-count">0</span></a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div>
-        <div class="eyebrow">Your neighbourhood stationery store</div>
-        <h1>Little Things.<br>Big Ideas.</h1>
-        <p>
-          From everyday pens to college project supplies,
-          find the little things that help your ideas grow.
-        </p>
-        <a class="button" href="#shop">Explore Products →</a>
-      </div>
-      <div class="hero-art" aria-label="Stationery illustration">
-        📚✏️
-      </div>
-    </section>
+<header>
+  <div>
+    <h1>Paper & Pen</h1>
+    <p>Your everyday stationery destination</p>
+  </div>
+  <a href="#cart">🛒 My Cart (<span id="cart-count">0</span>)</a>
+</header>
 
-    <section id="services">
-      <h2 class="section-title">More Than Just Stationery</h2>
-      <p class="section-subtitle">
-        Your everyday essentials, all in one place.
-      </p>
+<section class="hero">
+  <h2>Make Every Idea Count.</h2>
+  <p>Discover stationery essentials for school, college and creativity.</p>
+  <button class="primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+    Explore Stationery
+  </button>
+</section>
 
-      <div class="services">
-        <div class="service">
-          <span>📚</span>
-          <h3>School & College</h3>
-          <p>Notebooks, pens, files and daily study supplies.</p>
-        </div>
-        <div class="service">
-          <span>🎨</span>
-          <h3>Art & Projects</h3>
-          <p>Colours, chart paper and creative essentials.</p>
-        </div>
-        <div class="service">
-          <span>🖨️</span>
-          <h3>Print Services</h3>
-          <p>Ask us about printing, photocopying and binding.</p>
-        </div>
-      </div>
-      <p class="note">
-        Services shown are examples. Confirm the shop's actual services
-        with the owner before publishing.
-      </p>
-    </section>
+<main>
+  <section id="shop">
+    <div class="section-heading">
+      <h2>Our Collection</h2>
+      <p>Find your everyday favourites.</p>
+    </div>
 
-    <section id="shop">
-      <h2 class="section-title">Find Your Essentials</h2>
-      <p class="section-subtitle">
-        Browse the catalogue and add what you need to your cart.
-      </p>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search stationery..." oninput="renderProducts()">
 
-      <div class="shop-tools">
-        <input id="search" type="search"
-          placeholder="Search notebooks, pens..."
-          aria-label="Search products">
-        <select id="sort" aria-label="Sort products">
-          <option value="default">Sort: Recommended</option>
-          <option value="low">Price: Low to High</option>
-          <option value="high">Price: High to Low</option>
-        </select>
-      </div>
+      <select id="category" onchange="renderProducts()">
+        <option value="All">All Categories</option>
+        <option value="Writing">Writing</option>
+        <option value="Paper">Paper</option>
+        <option value="Art">Art & Craft</option>
+        <option value="Essentials">Essentials</option>
+      </select>
 
-      <div class="categories" id="categories">
-        <button class="active" data-category="All">All</button>
-        <button data-category="Writing">Writing</button>
-        <button data-category="Notebooks">Notebooks</button>
-        <button data-category="Art">Art Supplies</button>
-        <button data-category="Paper">Paper & Files</button>
-      </div>
+      <select id="sort" onchange="renderProducts()">
+        <option value="default">Sort by</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
 
-      <div class="products" id="products"></div>
+    <div class="products" id="products"></div>
+  </section>
 
-      <div class="cart" id="cart">
-        <h2>Your Shopping Cart 🛒</h2>
-        <div id="cart-items">
-          <p class="empty">Your cart is empty. Add some stationery!</p>
-        </div>
-        <div class="cart-total">
-          Total: ₹<span id="cart-total">0</span>
-        </div>
-        <button id="order-button">Send Order Enquiry on WhatsApp</button>
-        <p class="note">
-          This creates an enquiry, not a confirmed purchase.
-          The shop owner must confirm stock and prices.
-        </p>
-      </div>
-    </section>
+  <section class="cart-box" id="cart">
+    <h2>🛒 Your Shopping Cart</h2>
+    <div id="cart-items">
+      <p class="empty">Your cart is empty. Add some stationery!</p>
+    </div>
+    <div class="total-row">
+      <span>Cart Total</span>
+      <span id="cart-total">₹0.00</span>
+    </div>
+    <button class="primary" onclick="openCheckout()">Get Your Stationery</button>
+  </section>
 
-    <section class="contact" id="contact">
-      <div class="contact-grid">
-        <div>
-          <h2 class="section-title">Visit Our Shop</h2>
-          <p>We're happy to help you find what you need.</p>
-          <br>
-          <p><strong>Shop:</strong> Paper & Pen</p>
-          <p><strong>Address:</strong> Add the real shop address here</p>
-          <p><strong>Hours:</strong> Add actual opening hours</p>
-          <p><strong>Phone:</strong> Add the shop's contact number</p>
-          <br>
-          <p>Have a question? Send us an enquiry.</p>
+  <section class="checkout-box hidden" id="checkout">
+    <h2>Checkout</h2>
+    <p>Please enter your details to prepare your bill.</p>
+
+    <form id="checkout-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="customer-name">Customer Name *</label>
+          <input id="customer-name" required maxlength="80" placeholder="Enter your name">
         </div>
 
-        <form class="contact-form" id="contact-form">
-          <input id="customer-name" type="text"
-            placeholder="Your name" required>
-          <input id="customer-phone" type="tel"
-            placeholder="Your phone number (optional)">
-          <textarea id="customer-message" rows="4"
-            placeholder="What do you need?" required></textarea>
-          <button type="submit">Send Enquiry on WhatsApp</button>
-        </form>
+        <div class="field">
+          <label for="customer-phone">Phone Number *</label>
+          <input id="customer-phone" type="tel" required
+            inputmode="numeric" pattern="[0-9]{10}"
+            maxlength="10" minlength="10"
+            placeholder="10-digit mobile number">
+        </div>
+
+        <div class="field full">
+          <label for="order-details">Order Details / Special Instructions</label>
+          <textarea id="order-details" rows="3"
+            placeholder="Any colour, size or other preferences?"></textarea>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <p>Paper & Pen — Supporting students, one page at a time. 💚</p>
-    <p>Community Project | Designed with HTML, CSS & JavaScript</p>
-  </footer>
+      <div class="note">
+        Your selected items and quantities will appear on the bill.
+        Check all details before generating your receipt.
+      </div>
 
-  <script>
-    // Replace these sample products with the shop's real products.
-    const products = [
-      {id: 1, name: "Ballpoint Pen", category: "Writing",
-       price: 10, emoji: "🖊️", desc: "For everyday writing"},
-      {id: 2, name: "Pencil Set", category: "Writing",
-       price: 25, emoji: "✏️", desc: "Useful for notes and drawing"},
-      {id: 3, name: "Spiral Notebook", category: "Notebooks",
-       price: 60, emoji: "📓", desc: "For class notes"},
-      {id: 4, name: "Pocket Notebook", category: "Notebooks",
-       price: 30, emoji: "📔", desc: "Small and easy to carry"},
-      {id: 5, name: "Colour Set", category: "Art",
-       price: 80, emoji: "🖍️", desc: "For creative projects"},
-      {id: 6, name: "Geometry Box", category: "Art",
-       price: 90, emoji: "📐", desc: "Maths and geometry tools"},
-      {id: 7, name: "A4 Paper Pack", category: "Paper",
-       price: 100, emoji: "📄", desc: "For assignments and printing"},
-      {id: 8, name: "Document File", category: "Paper",
-       price: 20, emoji: "📁", desc: "Keep papers organised"},
-      {id: 9, name: "Highlighter", category: "Writing",
-       price: 30, emoji: "🖍️", desc: "Highlight important notes"}
-    ];
+      <button class="primary" type="submit">Generate Bill</button>
+      <button class="secondary" type="button" onclick="closeCheckout()">Go Back</button>
+    </form>
+  </section>
 
-    // Add the owner's WhatsApp number here, including country code.
-    // India example: 919876543210 (no +, spaces or dashes).
-    const SHOP_WHATSAPP = "91XXXXXXXXXX";
+  <section class="bill-box hidden" id="bill">
+    <div class="bill-header">
+      <h2>Paper & Pen</h2>
+      <p>Stationery Shop — Customer Bill</p>
+      <p id="bill-date"></p>
+      <p id="bill-number"></p>
+    </div>
 
-    let selectedCategory = "All";
-    const cart = {};
+    <div id="bill-customer"></div>
 
-    const productArea = document.getElementById("products");
-    const search = document.getElementById("search");
-    const sort = document.getElementById("sort");
+    <hr style="margin:14px 0;border:0;border-top:1px dashed #9eaf9f">
 
-    function renderProducts() {
-      let visible = products.filter(product => {
-        const matchesCategory =
-          selectedCategory === "All" ||
-          product.category === selectedCategory;
+    <h3>Order Details</h3>
+    <div id="bill-items"></div>
 
-        const matchesSearch =
-          product.name.toLowerCase().includes(search.value.toLowerCase()) ||
-          product.category.toLowerCase().includes(search.value.toLowerCase());
+    <hr style="margin:14px 0;border:0;border-top:1px dashed #9eaf9f">
 
-        return matchesCategory && matchesSearch;
-      });
+    <div class="bill-line">
+      <span><strong>Total Amount</strong></span>
+      <strong id="bill-total">₹0.00</strong>
+    </div>
 
-      if (sort.value === "low") {
-        visible.sort((a, b) => a.price - b.price);
-      } else if (sort.value === "high") {
-        visible.sort((a, b) => b.price - a.price);
-      }
+    <p id="bill-notes" style="margin-top:12px"></p>
 
-      if (visible.length === 0) {
-        productArea.innerHTML =
-          '<p class="empty">No products found. Try another search.</p>';
-        return;
-      }
+    <div class="note">
+      Demo receipt: this website does not send the order to the shop
+      or save it to a database. Please contact the shop separately
+      to confirm availability and purchase.
+    </div>
 
-      productArea.innerHTML = visible.map(product => `
-        <article class="product">
-          <div class="product-art">${product.emoji}</div>
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <p>${product.category}</p>
-          <div class="price">₹${product.price}</div>
-          <button data-add="${product.id}">Add to Cart +</button>
-        </article>
-      `).join("");
-    }
+    <button class="primary" onclick="window.print()">Print / Save Bill</button>
+    <button class="secondary" onclick="startNewOrder()">Start New Order</button>
+  </section>
+</main>
 
-    function renderCart() {
-      const items = Object.entries(cart)
-        .filter(([id, quantity]) => quantity > 0);
+<footer>
+  <h3>Paper & Pen</h3>
+  <p>Small supplies. Big ideas.</p>
+  <p>Thank you for shopping with us!</p>
+</footer>
 
-      let count = 0;
-      let total = 0;
+<script>
+const products = [
+  {id:1, name:"Blue Ball Pen", category:"Writing", price:10, icon:"🖊️"},
+  {id:2, name:"Gel Pen", category:"Writing", price:20, icon:"🖋️"},
+  {id:3, name:"Pencil Set", category:"Writing", price:30, icon:"✏️"},
+  {id:4, name:"Highlighter", category:"Writing", price:35, icon:"🖍️"},
+  {id:5, name:"Notebook", category:"Paper", price:50, icon:"📓"},
+  {id:6, name:"Long Notebook", category:"Paper", price:70, icon:"📒"},
+  {id:7, name:"Sticky Notes", category:"Paper", price:40, icon:"🗒️"},
+  {id:8, name:"Drawing Book", category:"Paper", price:60, icon:"📔"},
+  {id:9, name:"Colour Pencils", category:"Art", price:80, icon:"🎨"},
+  {id:10, name:"Crayons", category:"Art", price:55, icon:"🖍️"},
+  {id:11, name:"Watercolour Set", category:"Art", price:120, icon:"🖌️"},
+  {id:12, name:"Geometry Box", category:"Essentials", price:90, icon:"📐"},
+  {id:13, name:"Eraser", category:"Essentials", price:5, icon:"◻️"},
+  {id:14, name:"Sharpener", category:"Essentials", price:10, icon:"✂️"},
+  {id:15, name:"Glue Stick", category:"Essentials", price:25, icon:"🧴"},
+  {id:16, name:"School Bag Tag", category:"Essentials", price:30, icon:"🎒"}
+];
 
-      items.forEach(([id, quantity]) => {
-        const product = products.find(p => p.id === Number(id));
-        count += quantity;
-        total += product.price * quantity;
-      });
+let cart = {};
+let orderNumber = 1;
 
-      document.getElementById("cart-count").textContent = count;
-      document.getElementById("cart-total").textContent = total;
+function money(amount) {
+  return "₹" + amount.toFixed(2);
+}
 
-      const area = document.getElementById("cart-items");
+function renderProducts() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const category = document.getElementById("category").value;
+  const sort = document.getElementById("sort").value;
 
-      if (items.length === 0) {
-        area.innerHTML =
-          '<p class="empty">Your cart is empty. Add some stationery!</p>';
-        return;
-      }
+  let shown = products.filter(product =>
+    product.name.toLowerCase().includes(search) &&
+    (category === "All" || product.category === category)
+  );
 
-      area.innerHTML = items.map(([id, quantity]) => {
-        const product = products.find(p => p.id === Number(id));
-        return `
-          <div class="cart-row">
-            <div>
-              <strong>${product.name}</strong><br>
-              ₹${product.price} × ${quantity}
-            </div>
-            <div class="quantity">
-              <button data-change="${id}" data-delta="-1"
-                aria-label="Remove one ${product.name}">−</button>
-              <span>${quantity}</span>
-              <button data-change="${id}" data-delta="1"
-                aria-label="Add one ${product.name}">+</button>
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
+  if (sort === "low") shown.sort((a,b) => a.price - b.price);
+  if (sort === "high") shown.sort((a,b) => b.price - a.price);
 
-    document.getElementById("categories")
-      .addEventListener("click", event => {
-        const button = event.target.closest("button[data-category]");
-        if (!button) return;
+  const container = document.getElementById("products");
 
-        selectedCategory = button.dataset.category;
+  if (!shown.length) {
+    container.innerHTML = "<p>No products found. Try another search.</p>";
+    return;
+  }
 
-        document.querySelectorAll("#categories button")
-          .forEach(item => item.classList.remove("active"));
+  container.innerHTML = shown.map(product => `
+    <article class="product">
+      <div class="product-icon">${product.icon}</div>
+      <p class="category">${product.category}</p>
+      <h3>${product.name}</h3>
+      <div class="product-bottom">
+        <span class="price">${money(product.price)}</span>
+        <button class="primary" onclick="addToCart(${product.id})">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
 
-        button.classList.add("active");
-        renderProducts();
-      });
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  renderCart();
+}
 
-    productArea.addEventListener("click", event => {
-      const button = event.target.closest("button[data-add]");
-      if (!button) return;
+function changeQuantity(id, amount) {
+  cart[id] = (cart[id] || 0) + amount;
+  if (cart[id] <= 0) delete cart[id];
+  renderCart();
+}
 
-      const id = Number(button.dataset.add);
-      cart[id] = (cart[id] || 0) + 1;
-      renderCart();
-    });
+function removeItem(id) {
+  delete cart[id];
+  renderCart();
+}
 
-    document.getElementById("cart-items")
-      .addEventListener("click", event => {
-        const button = event.target.closest("button[data-change]");
-        if (!button) return;
+function getCartProducts() {
+  return products.filter(product => cart[product.id] > 0);
+}
 
-        const id = Number(button.dataset.change);
-        cart[id] = (cart[id] || 0) + Number(button.dataset.delta);
+function getTotal() {
+  return getCartProducts().reduce(
+    (sum, product) => sum + product.price * cart[product.id], 0
+  );
+}
 
-        if (cart[id] <= 0) delete cart[id];
+function renderCart() {
+  const items = getCartProducts();
+  const container = document.getElementById("cart-items");
+  const count = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
 
-        renderCart();
-      });
+  document.getElementById("cart-count").textContent = count;
+  document.getElementById("cart-total").textContent = money(getTotal());
 
-    search.addEventListener("input", renderProducts);
-    sort.addEventListener("change", renderProducts);
+  if (!items.length) {
+    container.innerHTML = '<p class="empty">Your cart is empty. Add some stationery!</p>';
+    return;
+  }
 
-    function openWhatsApp(message) {
-      if (!/^91\d{10}$/.test(SHOP_WHATSAPP)) {
-        alert(
-          "The shop's WhatsApp number has not been configured yet. " +
-          "Replace SHOP_WHATSAPP in the code with the owner's 10-digit " +
-          "Indian mobile number including country code 91."
-        );
-        return;
-      }
+  container.innerHTML = items.map(product => `
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <strong>${product.name}</strong><br>
+        <small>${money(product.price)} each</small>
+      </div>
+      <div class="quantity">
+        <button class="secondary" onclick="changeQuantity(${product.id},-1)">−</button>
+        <span>${cart[product.id]}</span>
+        <button class="secondary" onclick="changeQuantity(${product.id},1)">+</button>
+      </div>
+      <strong>${money(product.price * cart[product.id])}</strong>
+      <button class="remove" onclick="removeItem(${product.id})">Remove</button>
+    </div>
+  `).join("");
+}
 
-      const url = "https://wa.me/" + SHOP_WHATSAPP +
-        "?text=" + encodeURIComponent(message);
+function openCheckout() {
+  if (!getCartProducts().length) {
+    alert("Your cart is empty. Please add an item first.");
+    return;
+  }
 
-      window.open(url, "_blank");
-    }
+  document.getElementById("checkout").classList.remove("hidden");
+  document.getElementById("bill").classList.add("hidden");
+  document.getElementById("checkout").scrollIntoView({behavior:"smooth"});
+}
 
-    document.getElementById("order-button")
-      .addEventListener("click", () => {
-        const items = Object.entries(cart)
-          .filter(([id, quantity]) => quantity > 0);
+function closeCheckout() {
+  document.getElementById("checkout").classList.add("hidden");
+  document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+}
 
-        if (items.length === 0) {
-          alert("Please add at least one product to your cart first.");
-          return;
-        }
+document.getElementById("checkout-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-        let total = 0;
-        const lines = items.map(([id, quantity]) => {
-          const product = products.find(p => p.id === Number(id));
-          total += product.price * quantity;
-          return `${product.name} x ${quantity} = ₹${product.price * quantity}`;
-        });
+  const items = getCartProducts();
+  if (!items.length) {
+    alert("Your cart is empty.");
+    closeCheckout();
+    return;
+  }
 
-        const message =
-          "Hello! I would like to enquire about these stationery items:\n\n" +
-          lines.join("\n") +
-          `\n\nEstimated total: ₹${total}` +
-          "\nPlease confirm availability and final prices. Thank you!";
+  const name = document.getElementById("customer-name").value.trim();
+  const phone = document.getElementById("customer-phone").value.trim();
+  const notes = document.getElementById("order-details").value.trim();
 
-        openWhatsApp(message);
-      });
+  if (!name || !/^[0-9]{10}$/.test(phone)) {
+    alert("Please enter your name and a valid 10-digit phone number.");
+    return;
+  }
 
-    document.getElementById("contact-form")
-      .addEventListener("submit", event => {
-        event.preventDefault();
+  document.getElementById("bill-date").textContent =
+    "Date: " + new Date().toLocaleString("en-IN");
 
-        const name = document.getElementById("customer-name").value.trim();
-        const phone = document.getElementById("customer-phone").value.trim();
-        const message = document.getElementById("customer-message").value.trim();
+  document.getElementById("bill-number").textContent =
+    "Receipt No: DEMO-" + Date.now().toString().slice(-8);
 
-        if (!name || !message) return;
+  document.getElementById("bill-customer").innerHTML = `
+    <p><strong>Customer:</strong> ${escapeHTML(name)}</p>
+    <p><strong>Phone:</strong> ${escapeHTML(phone)}</p>
+  `;
 
-        openWhatsApp(
-          `Hello! My name is ${name}.\n` +
-          (phone ? `My contact number is ${phone}.\n` : "") +
-          `Enquiry: ${message}`
-        );
-      });
+  document.getElementById("bill-items").innerHTML = items.map(product => `
+    <div class="bill-line">
+      <span>${product.name} × ${cart[product.id]}</span>
+      <span>${money(product.price * cart[product.id])}</span>
+    </div>
+  `).join("");
 
-    renderProducts();
-    renderCart();
-  </script>
+  document.getElementById("bill-total").textContent = money(getTotal());
+
+  document.getElementById("bill-notes").textContent =
+    notes ? "Special instructions: " + notes : "";
+
+  document.getElementById("checkout").classList.add("hidden");
+  document.getElementById("bill").classList.remove("hidden");
+  document.getElementById("bill").scrollIntoView({behavior:"smooth"});
+
+  orderNumber++;
+});
+
+function escapeHTML(value) {
+  return value.replace(/[&<>"']/g, character => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  })[character]);
+}
+
+function startNewOrder() {
+  cart = {};
+  renderCart();
+  document.getElementById("checkout-form").reset();
+  document.getElementById("bill").classList.add("hidden");
+  document.getElementById("checkout").classList.add("hidden");
+  document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+
+renderProducts();
+renderCart();
+</script>
+
 </body>
-  </html>
+</html>
+
